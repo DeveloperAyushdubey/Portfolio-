@@ -1,201 +1,274 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ayush Dubey | .NET Developer</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<title>Ayush Dubey | Portfolio</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{color:#fff;overflow-x:hidden;background:#0f2027;}
+body{
+margin:0;
+font-family:Segoe UI;
+background:linear-gradient(135deg,#0f0f0f,#1c1c1c);
+color:white;
+}
 
-/* Navbar */
-nav{position:fixed;width:100%;padding:20px 50px;display:flex;justify-content:space-between;background:rgba(0,0,0,0.6);backdrop-filter:blur(12px);z-index:1000;}
-nav h2{color:#00f2fe;font-weight:700;}
-nav ul{display:flex;list-style:none;gap:25px;}
-nav ul li a{color:white;text-decoration:none;font-weight:500;transition:0.3s;}
-nav ul li a:hover{color:#00f2fe;}
-
-/* Hero */
+/* HERO */
 .hero{
-  height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-  background: linear-gradient(270deg,#0f2027,#203a43,#2c5364,#0f2027);
-  background-size:800% 800%;
-  animation: gradientMove 20s ease infinite;
+text-align:center;
+padding:80px 20px;
 }
 
-@keyframes gradientMove{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
+.hero h1{
+font-size:42px;
+margin-bottom:10px;
 }
 
-.hero h1{font-size:55px;margin-bottom:10px;}
-.hero .typed-text{color:#00f2fe;border-right:3px solid #00f2fe;white-space:nowrap;overflow:hidden;display:inline-block;font-size:22px;margin-bottom:20px;}
-.hero p{font-size:18px;max-width:600px;margin-bottom:20px;}
-
-/* Floating blobs */
-.blob{position:absolute;border-radius:50%;background:rgba(0,242,254,0.2);animation:float 8s infinite ease-in-out alternate;}
-.blob1{width:220px;height:220px;top:5%;left:5%;}
-.blob2{width:150px;height:150px;bottom:15%;right:10%;}
-.blob3{width:120px;height:120px;top:50%;right:20%;}
-@keyframes float{0%{transform:translateY(0px);}50%{transform:translateY(-25px);}100%{transform:translateY(0px);}}
-
-/* Buttons */
-.btn{margin-top:15px;padding:12px 30px;border:none;border-radius:30px;background:#00f2fe;color:black;font-weight:bold;cursor:pointer;transition:0.3s;}
-.btn:hover{transform:scale(1.1);box-shadow:0 0 25px #00f2fe;}
-
-/* Sections */
-section{padding:100px 50px;opacity:0;transform:translateY(50px);transition:1s;}
-section.show{opacity:1;transform:translateY(0);}
-.section-title{text-align:center;font-size:35px;margin-bottom:50px;color:#00f2fe;}
-
-/* Glassmorphism effect */
-.glass{
-  background: rgba(255,255,255,0.05);
-  border-radius:20px;
-  padding:40px 20px;
-  backdrop-filter:blur(10px);
-  box-shadow:0 8px 32px rgba(0,0,0,0.4);
-  transition:0.3s;
+.typing-text{
+font-size:24px;
+color:#00f2ff;
+height:30px;
 }
-.glass:hover{background: rgba(0,242,254,0.1);transform:scale(1.02);}
 
-/* About */
-#about{text-align:center;max-width:800px;margin:auto;}
-#about p{font-size:18px;line-height:1.6;margin-top:15px;}
+/* SCROLL LINE */
+.scroll-container{
+width:100%;
+overflow:hidden;
+background:black;
+padding:10px 0;
+}
 
-/* Skills */
-.skills-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;}
-.skill{background:rgba(255,255,255,0.05);padding:20px;text-align:center;border-radius:15px;font-weight:500;transition:0.4s, transform 0.4s, background 0.4s;backdrop-filter:blur(5px);}
-.skill:hover{background:#00f2fe;color:black;transform:scale(1.08);}
+.scroll-text{
+display:inline-block;
+white-space:nowrap;
+animation:scrollLeft 12s linear infinite;
+font-weight:bold;
+color:#00f2ff;
+}
 
-/* Projects */
-.project-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;}
-.project-card{background:rgba(255,255,255,0.05);padding:25px;border-radius:15px;transition:0.4s, transform 0.4s;box-shadow:0 5px 15px rgba(0,0,0,0.3);backdrop-filter:blur(5px);}
-.project-card:hover{transform:translateY(-10px) scale(1.03);background:#00f2fe;color:black;box-shadow:0 15px 25px rgba(0,0,0,0.6);}
-.project-card a{display:inline-block;margin-top:10px;color:#000;background:#fff;padding:6px 12px;border-radius:6px;text-decoration:none;font-weight:500;transition:0.3s;}
-.project-card a:hover{background:#000;color:#00f2fe;}
+@keyframes scrollLeft{
+0%{transform:translateX(0);}
+100%{transform:translateX(-50%);}
+}
 
-/* Footer */
-footer{text-align:center;padding:25px;background:rgba(0,0,0,0.6);margin-top:50px;}
-footer a{color:#00f2fe;margin:0 10px;text-decoration:none;font-weight:500;transition:0.3s;}
-footer a:hover{color:#fff;}
+/* SKILLS */
+#skills{
+padding:50px 20px;
+text-align:center;
+}
 
-/* Responsive */
-@media(max-width:768px){.hero h1{font-size:35px;}nav{padding:15px;}.btn{padding:10px 20px;}}
+.skill-box{
+display:inline-block;
+background:#222;
+padding:12px 18px;
+margin:10px;
+border-radius:8px;
+transition:0.3s;
+}
+
+.skill-box:hover{
+background:#00f2ff;
+color:black;
+transform:scale(1.1);
+}
+
+/* PROJECTS */
+#projects{
+padding:50px 20px;
+overflow:hidden;
+}
+
+.project-wrapper{
+overflow:hidden;
+}
+
+.project-track{
+display:flex;
+gap:20px;
+width:max-content;
+animation:scrollProject 25s linear infinite;
+}
+
+.project-card{
+min-width:250px;
+background:#222;
+padding:20px;
+border-radius:12px;
+box-shadow:0 0 15px rgba(0,255,255,0.2);
+}
+
+.btn{
+display:inline-block;
+margin-top:10px;
+padding:8px 15px;
+background:#00f2ff;
+color:black;
+text-decoration:none;
+border-radius:6px;
+font-weight:bold;
+}
+
+@keyframes scrollProject{
+0%{transform:translateX(0);}
+100%{transform:translateX(-50%);}
+}
+
+/* CONTACT */
+#contact{
+padding:60px 20px;
+text-align:center;
+background:#111;
+}
+
+.contact-box{
+display:inline-block;
+background:#222;
+padding:25px;
+border-radius:12px;
+box-shadow:0 0 20px rgba(0,255,255,0.2);
+}
+
+.contact-box p{
+margin:10px 0;
+font-size:18px;
+}
+
+.contact-box a{
+color:#00f2ff;
+text-decoration:none;
+font-weight:bold;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:black;
+color:gray;
+}
+
 </style>
 </head>
+
 <body>
 
-<!-- Navbar -->
-<nav>
-<h2>Ayush</h2>
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#projects">Projects</a></li>
-</ul>
-</nav>
-
-<!-- Hero -->
-<section class="hero" id="home">
-  <div class="blob blob1"></div>
-  <div class="blob blob2"></div>
-  <div class="blob blob3"></div>
-  <h1>Hi, I'm Ayush Dubey</h1>
-  <div class="typed-text" id="typed"></div>
-  <p>Professional .NET Developer creating modern, scalable web apps using ASP.NET MVC, .NET Core API & SQL Server.</p>
-  <button class="btn">Hire Me</button>
+<section class="hero">
+<h1>Hi, I'm Ayush Dubey</h1>
+<h2 class="typing-text">
+<span id="dynamic-text"></span>
+</h2>
 </section>
 
-<!-- About -->
-<section id="about">
-<h2 class="section-title">About Me</h2>
-<div class="glass">
-<p>I'm a professional .NET developer with expertise in ASP.NET MVC, Web Forms, .NET Core API, and SQL Server.  
-I focus on building scalable, modern web applications and delivering solutions that are user-friendly and maintainable.  
-My goal is to combine creativity with logic to make projects that clients love.</p>
+<div class="scroll-container">
+<div class="scroll-text">
+🚀 .NET Developer  | SQL Server | Web Forms | 
+🚀 .NET Developer  | SQL Server | Web Forms |
 </div>
-</section>
+</div>
 
-<!-- Skills -->
 <section id="skills">
-<h2 class="section-title">My Skills</h2>
-<div class="skills-container">
-<div class="skill glass">C#</div>
-<div class="skill glass">ASP.NET</div>
-<div class="skill glass">ASP.NET MVC</div>
-<div class="skill glass">.NET Core</div>
-<div class="skill glass">.NET Core API</div>
-<div class="skill glass">Web Forms</div>
-<div class="skill glass">SQL Server</div>
-<div class="skill glass">Ajax</div>
-<div class="skill glass">Jquery</div>
-</div>
+<h2>My Skills</h2>
+
+<div class="skill-box">C#</div>
+<div class="skill-box">.NET</div>
+<div class="skill-box">ASP.NET Web Forms</div>
+<div class="skill-box">SQL Server</div>
+<div class="skill-box">MVC</div>
+<div class="skill-box">Dot Net Core</div>
+<div class="skill-box">Ajax</div>
+<div class="skill-box">Jquery</div>
+
 </section>
 
-<!-- Projects -->
 <section id="projects">
-<h2 class="section-title">Projects</h2>
-<div class="project-container">
-<div class="project-card glass">
-<h3>Chat-App</h3>
-<p>A real-time chat application built for messaging and group chat.</p>
-<a href="https://github.com/DeveloperAyushdubey/Chat-App" target="_blank">GitHub</a>
+<h2 style="text-align:center;">My Projects</h2>
+
+<div class="project-wrapper">
+<div class="project-track">
+
+<div class="project-card">
+<h3>Portfolio</h3>
+<p>Personal portfolio website.</p>
+<a href="#" class="btn">View on GitHub</a>
 </div>
-<div class="project-card glass">
-<h3>Shoe-s-Karidoo</h3>
-<p>E-commerce platform for shoes with cart & checkout functionality.</p>
-<a href="https://github.com/DeveloperAyushdubey/Shoe-s-Karidoo" target="_blank">GitHub</a>
+
+<div class="project-card">
+<h3>Chat App</h3>
+<p>Real-time chat app.</p>
+<a href="https://github.com/DeveloperAyushdubey/Chat-App" class="btn">View on GitHub</a>
 </div>
-<div class="project-card glass">
-<h3>Job-Portal</h3>
-<p>Job posting and application system using ASP.NET MVC & SQL Server.</p>
-<a href="https://github.com/DeveloperAyushdubey/Job-Portal" target="_blank">GitHub</a>
+
+<div class="project-card">
+<h3>Job Portal</h3>
+<p>Job search system.</p>
+<a href="https://github.com/DeveloperAyushdubey/Job-Portal" class="btn">View on GitHub</a>
 </div>
-<div class="project-card glass">
-<h3>Online_Clothes</h3>
-<p>Online clothing store with catalog, cart & payment integration.</p>
-<a href="https://github.com/DeveloperAyushdubey/Online_Clothes" target="_blank">GitHub</a>
+
+<div class="project-card">
+<h3>Online Clothes</h3>
+<p>E-commerce clothing website.</p>
+<a href="https://github.com/DeveloperAyushdubey/Online_Clothes" class="btn">View on GitHub</a>
+</div>
+
+
 </div>
 </div>
 </section>
 
-<!-- Footer -->
-<footer>
-<p>© 2026 Ayush Dubey | .NET Developer</p>
-<p>
-<a href="https://github.com/DeveloperAyushdubey" target="_blank">GitHub</a> | 
-<a href="https://www.linkedin.com/in/ayush-dubey-b491b1278/" target="_blank">LinkedIn</a> | 
+<!-- CONTACT SECTION -->
+<section id="contact">
+<h2>Contact Me</h2>
+
+<div class="contact-box">
+<p>📱 Mobile: 7834874693</p>
+<p>📧 Email: ayushdubey9958@email.com</p>
+<p>🔗 LinkedIn:
+<a href="https://www.linkedin.com/in/ayush-dubey-b491b1278/" target="_blank">
+linkedin.com/in/yourprofile
+</a>
 </p>
+</div>
+
+</section>
+
+<footer>
+© 2026 Ayush Dubey | All Rights Reserved
 </footer>
 
 <script>
-// Typing Animation
-const typedText=document.getElementById('typed');
-const texts=[".NET Developer","ASP.NET MVC",".NET Core API"];
-let index=0,charIndex=0;
-function type(){if(charIndex<texts[index].length){typedText.innerHTML+=texts[index][charIndex];charIndex++;setTimeout(type,100);}else{setTimeout(erase,1500);}}
-function erase(){if(charIndex>0){typedText.innerHTML=texts[index].substring(0,charIndex-1);charIndex--;setTimeout(erase,50);}else{index=(index+1)%texts.length;setTimeout(type,500);}}
-document.addEventListener("DOMContentLoaded",type);
+const texts=[
 
-// Scroll Reveal
-const elements=document.querySelectorAll('section, .skill, .project-card');
-window.addEventListener('scroll',()=>{
-elements.forEach(el=>{
-const pos=el.getBoundingClientRect().top;
-if(pos<window.innerHeight-100){el.classList.add('show');}
-});
-});
+".NET Developer",
+
+];
+
+let index=0;
+let charIndex=0;
+let isDeleting=false;
+
+function typeEffect(){
+
+let currentText=texts[index];
+
+if(!isDeleting){
+charIndex++;
+}else{
+charIndex--;
+}
+
+document.getElementById("dynamic-text").textContent=
+currentText.substring(0,charIndex);
+
+if(!isDeleting && charIndex===currentText.length){
+setTimeout(()=>isDeleting=true,1000);
+}
+else if(isDeleting && charIndex===0){
+isDeleting=false;
+index=(index+1)%texts.length;
+}
+
+setTimeout(typeEffect,isDeleting?50:100);
+}
+
+typeEffect();
 </script>
 
 </body>
